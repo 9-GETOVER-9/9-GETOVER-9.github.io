@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>312心理学考研智能备考平台</title>
+    <script>
+      (() => {
+        if (!("serviceWorker" in navigator)) return;
+
+        window.addEventListener(
+          "load",
+          () => {
+            navigator.serviceWorker
+              .getRegistrations()
+              .then((registrations) => registrations.forEach((registration) => registration.unregister()))
+              .catch(() => {});
+
+            if ("caches" in window) {
+              caches
+                .keys()
+                .then((keys) => keys.forEach((key) => caches.delete(key)))
+                .catch(() => {});
+            }
+          },
+          { once: true },
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

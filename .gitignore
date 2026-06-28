@@ -1,0 +1,11 @@
+node_modules/
+dashboard/
+/data/
+.gstack/
+.tmp/
+screenshots/
+
+*.log
+*.err
+*.png
+source-408os.html
